@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Appointments - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+                <p class="doctor-badge">👨‍⚕️ Doctor Portal</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="doctor-dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="doctor-appointments.html" class="nav-item active">📅 Appointments</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>📅 Manage Appointments</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Tabs for filtering -->
+                <section class="dashboard-section">
+                    <div class="tabs">
+                        <button class="tab-button active" data-filter="pending">Pending</button>
+                        <button class="tab-button" data-filter="confirmed">Confirmed</button>
+                        <button class="tab-button" data-filter="completed">Completed</button>
+                        <button class="tab-button" data-filter="cancelled">Cancelled</button>
+                    </div>
+
+                    <div id="appointmentsList" class="appointments-list">
+                        <p class="empty-state">No appointments</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for appointment details -->
+    <div id="appointmentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Appointment Details</h2>
+            
+            <div id="modalContent" class="modal-body">
+                <!-- Details will be populated here -->
+            </div>
+
+            <div class="modal-actions">
+                <button id="confirmBtn" class="btn btn-primary" style="display: none;">✓ Confirm</button>
+                <button id="cancelBtn" class="btn btn-secondary">✗ Cancel</button>
+                <button id="completeBtn" class="btn btn-primary" style="display: none;">✓ Mark Complete</button>
+                <button id="addPrescriptionBtn" class="btn btn-secondary" style="display: none;">💊 Add Prescription</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding prescription -->
+    <div id="prescriptionModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add Prescription</h2>
+            
+            <form id="prescriptionForm" class="appointment-form">
+                <div class="form-group">
+                    <label for="medicationName">Medication Name</label>
+                    <input type="text" id="medicationName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dosage">Dosage</label>
+                    <input type="text" id="dosage" placeholder="e.g., 500mg" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">Frequency</label>
+                    <input type="text" id="frequency" placeholder="e.g., 2 times daily" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <input type="text" id="duration" placeholder="e.g., 7 days" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructions">Instructions</label>
+                    <textarea id="instructions" rows="4" placeholder="Additional instructions..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Prescription</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/doctor-appointments.js"></script>
+</body>
+</html>

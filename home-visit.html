@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Visit - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="symptom-checker.html" class="nav-item">🤖 Symptom Checker</a>
+                <a href="appointments.html" class="nav-item">📅 Appointments</a>
+                <a href="ambulance.html" class="nav-item">🚑 Ambulance</a>
+                <a href="home-visit.html" class="nav-item active">👨‍⚕️ Home Visit</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>👨‍⚕️ Doctor Home Visit</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Home Visit Request Section -->
+                <section class="dashboard-section">
+                    <h2>Request Doctor Home Visit</h2>
+                    
+                    <form id="homeVisitForm" class="appointment-form">
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+                            <input type="text" id="patientName" required placeholder="Enter patient name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="Enter contact number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Home Address</label>
+                            <textarea id="address" rows="3" required placeholder="Enter your full address"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Home Visit</label>
+                            <textarea id="reason" rows="4" required placeholder="Describe the medical condition or reason for home visit"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date</label>
+                                <input type="date" id="preferredDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time</label>
+                                <input type="time" id="preferredTime" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Request Home Visit</button>
+                    </form>
+                </section>
+
+                <!-- Home Visit Requests Status -->
+                <section class="dashboard-section">
+                    <h2>Your Home Visit Requests</h2>
+                    <div id="homeVisitList" class="history-list">
+                        <p class="empty-state">No home visit requests</p>
+                    </div>
+                </section>
+
+                <!-- Doctor Tracking (when doctor is on the way) -->
+                <section class="dashboard-section" id="doctorTrackingSection" style="display: none;">
+                    <h2>Doctor Location Tracking</h2>
+                    <div class="tracking-info">
+                        <div class="info-item">
+                            <label>Doctor Name:</label>
+                            <p id="doctorName">Waiting for confirmation</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Estimated Arrival:</label>
+                            <p id="doctorETA">Calculating...</p>
+                        </div>
+                        <div id="mapPlaceholder" class="map-placeholder">
+                            📍 Doctor's live location tracking would display here
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/home-visit.js"></script>
+</body>
+</html>

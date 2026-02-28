@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="symptom-checker.html" class="nav-item">🤖 Symptom Checker</a>
+                <a href="appointments.html" class="nav-item active">📅 Appointments</a>
+                <a href="ambulance.html" class="nav-item">🚑 Ambulance</a>
+                <a href="home-visit.html" class="nav-item">👨‍⚕️ Home Visit</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>📅 Appointments</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Book Appointment Section -->
+                <section class="dashboard-section">
+                    <h2>Book an Appointment</h2>
+                    
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="specialization">Doctor Specialization</label>
+                                <select id="specialization" required>
+                                    <option value="">Select Specialization</option>
+                                    <option value="General Practitioner">General Practitioner</option>
+                                    <option value="Cardiologist">Cardiologist</option>
+                                    <option value="Dermatologist">Dermatologist</option>
+                                    <option value="Orthopedist">Orthopedist</option>
+                                    <option value="Neurologist">Neurologist</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="doctor">Select Doctor</label>
+                                <select id="doctor" required>
+                                    <option value="">Choose a doctor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointmentDate">Date</label>
+                                <input type="date" id="appointmentDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="appointmentTime">Time</label>
+                                <input type="time" id="appointmentTime" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Visit</label>
+                            <textarea id="reason" rows="4" placeholder="Describe your symptoms or reason for visit..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Book Appointment</button>
+                    </form>
+                </section>
+
+                <!-- Upcoming Appointments -->
+                <section class="dashboard-section">
+                    <h2>Your Appointments</h2>
+                    <div id="appointmentsList" class="appointments-list">
+                        <p class="empty-state">No appointments booked</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/appointments.js"></script>
+</body>
+</html>

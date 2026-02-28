@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+                <p class="doctor-badge">👨‍⚕️ Doctor Portal</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="doctor-dashboard.html" class="nav-item active">📊 Dashboard</a>
+                <a href="doctor-appointments.html" class="nav-item">📅 Appointments</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>👨‍⚕️ Doctor Dashboard</h1>
+                <div class="user-menu">
+                    <span id="doctorName">Doctor</span>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Quick Stats -->
+                <section class="dashboard-section">
+                    <h2>Today's Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <h3>Total Patients</h3>
+                                <p id="totalPatients">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-info">
+                                <h3>Today's Appointments</h3>
+                                <p id="todayAppointments">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏳</div>
+                            <div class="stat-info">
+                                <h3>Pending Requests</h3>
+                                <p id="pendingRequests">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Today's Appointments -->
+                <section class="dashboard-section">
+                    <h2>Today's Appointments</h2>
+                    <div id="todayAppointmentsList" class="appointments-list">
+                        <p class="empty-state">No appointments today</p>
+                    </div>
+                </section>
+
+                <!-- Pending Home Visit Requests -->
+                <section class="dashboard-section">
+                    <h2>Pending Home Visit Requests</h2>
+                    <div id="homeVisitRequestsList" class="appointments-list">
+                        <p class="empty-state">No pending home visit requests</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/doctor-dashboard.js"></script>
+</body>
+</html>

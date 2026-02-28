@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/symptom-checker.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="symptom-checker.html" class="nav-item active">🤖 Symptom Checker</a>
+                <a href="appointments.html" class="nav-item">📅 Appointments</a>
+                <a href="ambulance.html" class="nav-item">🚑 Ambulance</a>
+                <a href="home-visit.html" class="nav-item">👨‍⚕️ Home Visit</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>🤖 Symptom Checker</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Symptom Input Section -->
+                <section class="dashboard-section">
+                    <h2>Describe Your Symptoms</h2>
+                    
+                    <div class="symptom-input-section">
+                        <div class="input-group">
+                            <label for="symptomsInput">Enter Your Symptoms:</label>
+                            <textarea id="symptomsInput" placeholder="Describe your symptoms in detail (e.g., fever, cough, sore throat)..." rows="4"></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Or Record Your Symptoms:</label>
+                            <div class="voice-recorder">
+                                <button id="recordBtn" class="btn btn-secondary">🎤 Start Recording</button>
+                                <button id="stopBtn" class="btn btn-secondary" style="display: none;">⏹️ Stop Recording</button>
+                                <span id="recordingStatus" class="recording-status"></span>
+                            </div>
+                            <audio id="audioPlayback" controls style="display: none; width: 100%; margin-top: 10px;"></audio>
+                            <button id="submitAudioBtn" class="btn btn-secondary" style="display: none;">Submit Audio</button>
+                        </div>
+
+                        <button id="analyzeBtn" class="btn btn-primary">Analyze Symptoms</button>
+                    </div>
+                </section>
+
+                <!-- Analysis Results -->
+                <section class="dashboard-section" id="resultsSection" style="display: none;">
+                    <h2>Analysis Results</h2>
+                    
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3 id="illnessName">Unknown Condition</h3>
+                            <span id="severityBadge" class="severity-badge">Mild</span>
+                        </div>
+
+                        <div class="result-content">
+                            <div class="result-item">
+                                <label>Description:</label>
+                                <p id="illnessDescription">Unable to analyze symptoms</p>
+                            </div>
+
+                            <div class="result-item">
+                                <label>Severity Level:</label>
+                                <p id="severityLevel">Mild</p>
+                            </div>
+
+                            <div class="result-item">
+                                <label>Confidence Score:</label>
+                                <div class="confidence-bar">
+                                    <div id="confidenceBar" class="confidence-fill" style="width: 0%;"></div>
+                                </div>
+                                <p id="confidenceText">0%</p>
+                            </div>
+
+                            <div class="result-item">
+                                <label>Recommendations:</label>
+                                <p id="recommendations">Consult with a healthcare professional</p>
+                            </div>
+
+                            <div class="result-actions">
+                                <button id="bookAppointmentBtn" class="btn btn-primary">Book Appointment with Doctor</button>
+                                <button id="newAnalysisBtn" class="btn btn-secondary">New Analysis</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analysis History -->
+                <section class="dashboard-section">
+                    <h2>Analysis History</h2>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-state">No analysis history</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/symptom-checker.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Booking - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="symptom-checker.html" class="nav-item">🤖 Symptom Checker</a>
+                <a href="appointments.html" class="nav-item">📅 Appointments</a>
+                <a href="ambulance.html" class="nav-item active">🚑 Ambulance</a>
+                <a href="home-visit.html" class="nav-item">👨‍⚕️ Home Visit</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>🚑 Emergency Ambulance</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Ambulance Booking Section -->
+                <section class="dashboard-section">
+                    <h2>Request Emergency Ambulance</h2>
+                    
+                    <form id="ambulanceForm" class="appointment-form">
+                        <div class="alert alert-warning">
+                            ⚠️ This is for medical emergencies. If it's a life-threatening situation, call emergency services immediately.
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+                            <input type="text" id="patientName" required placeholder="Enter patient name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="Enter contact number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Current Location</label>
+                            <input type="text" id="location" required placeholder="Enter your location">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="button" id="useCurrentLocationBtn" class="btn btn-secondary">📍 Use Current Location</button>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-emergency">🚨 Request Ambulance Now</button>
+                    </form>
+                </section>
+
+                <!-- Active Ambulance Tracking -->
+                <section class="dashboard-section" id="trackingSection" style="display: none;">
+                    <h2>Ambulance Tracking</h2>
+                    <div class="tracking-info">
+                        <div class="info-item">
+                            <label>Status:</label>
+                            <p id="ambulanceStatus">Assigned</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Estimated Arrival:</label>
+                            <p id="estimatedArrival">10-15 minutes</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Driver Contact:</label>
+                            <p id="driverContact">Available soon</p>
+                        </div>
+                        <div id="mapPlaceholder" class="map-placeholder">
+                            📍 Live location tracking would display here
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ambulance History -->
+                <section class="dashboard-section">
+                    <h2>Ambulance Request History</h2>
+                    <div id="ambulanceHistory" class="history-list">
+                        <p class="empty-state">No ambulance requests</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ambulance.js"></script>
+</body>
+</html>

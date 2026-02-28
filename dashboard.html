@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CuraLink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏥 CuraLink</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">📊 Dashboard</a>
+                <a href="symptom-checker.html" class="nav-item">🤖 Symptom Checker</a>
+                <a href="appointments.html" class="nav-item">📅 Appointments</a>
+                <a href="ambulance.html" class="nav-item">🚑 Ambulance</a>
+                <a href="home-visit.html" class="nav-item">👨‍⚕️ Home Visit</a>
+                <a href="profile.html" class="nav-item">👤 Profile</a>
+                <a href="#" id="logoutBtn" class="nav-item">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1 id="welcomeMessage">Welcome to CuraLink</h1>
+                <div class="user-menu">
+                    <span id="userName">User</span>
+                    <button id="notificationBtn" class="notification-btn">🔔</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Quick Stats -->
+                <section class="dashboard-section">
+                    <h2>Quick Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-info">
+                                <h3>Upcoming Appointments</h3>
+                                <p id="upcomingCount">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🤖</div>
+                            <div class="stat-info">
+                                <h3>Recent Analysis</h3>
+                                <p id="analysisCount">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-info">
+                                <h3>Prescriptions</h3>
+                                <p id="prescriptionCount">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Appointments -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Upcoming Appointments</h2>
+                        <a href="appointments.html" class="btn btn-small">+ New Appointment</a>
+                    </div>
+                    <div id="appointmentsList" class="appointments-list">
+                        <p class="empty-state">No upcoming appointments</p>
+                    </div>
+                </section>
+
+                <!-- Recent Analysis -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Recent Analysis</h2>
+                        <a href="symptom-checker.html" class="btn btn-small">+ New Analysis</a>
+                    </div>
+                    <div id="analysisList" class="analysis-list">
+                        <p class="empty-state">No analysis history</p>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="dashboard-section">
+                    <h2>Quick Actions</h2>
+                    <div class="quick-actions">
+                        <a href="appointments.html" class="action-card">
+                            <div class="action-icon">📅</div>
+                            <h3>Book Appointment</h3>
+                        </a>
+                        <a href="symptom-checker.html" class="action-card">
+                            <div class="action-icon">🤖</div>
+                            <h3>Check Symptoms</h3>
+                        </a>
+                        <a href="ambulance.html" class="action-card">
+                            <div class="action-icon">🚑</div>
+                            <h3>Request Ambulance</h3>
+                        </a>
+                        <a href="home-visit.html" class="action-card">
+                            <div class="action-icon">👨‍⚕️</div>
+                            <h3>Request Home Visit</h3>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
